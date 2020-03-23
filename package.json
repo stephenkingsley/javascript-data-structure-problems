@@ -1,0 +1,25 @@
+{
+  "name": "javascript-data-structure-problems",
+  "version": "0.0.1",
+  "description": "Classical JavaScript data structure problems",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo 'ok'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stephenkingsley/javascript-data-structure-problems.git"
+  },
+  "keywords": [
+    "javascript",
+    "data",
+    "structure",
+    "leetcode"
+  ],
+  "author": "stephen.K",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stephenkingsley/javascript-data-structure-problems/issues"
+  },
+  "homepage": "https://github.com/stephenkingsley/javascript-data-structure-problems#readme"
+}
