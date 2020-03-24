@@ -1,6 +1,6 @@
 class Stack {
-  constructor(val) {
-    this.val = val || [];
+  constructor() {
+    this.val = [];
   }
 
   pop() {
@@ -8,42 +8,13 @@ class Stack {
   }
 
   push(val) {
-    this.val.push(val);
+    this.val.push(val)
   }
 
   isEmpty() {
     return this.val.length <= 0;
   }
 }
-
-const travelInOrder = (node) => {
-  debugger;
-  const stack = new Stack();
-  const travels = [];
-
-  let curr = node;
-  while(curr !== null || !stack.isEmpty()) {
-    while(curr !== null) {
-      const tem = Object.assign({}, curr);
-      stack.push(curr);
-      curr = curr.left;
-      
-      if (!curr) {
-        if (tem.left || tem.right) {
-          stack.push({});
-        }
-      }
-
-    }
-
-    curr = stack.pop();
-    travels.push(curr.val);
-    curr = curr.right;
-  }
-
-  return travels;
-}
-
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {
@@ -56,22 +27,31 @@ const travelInOrder = (node) => {
  * @return {boolean}
  */
 var isSymmetric = function(root) {
-  const treeArray = travelInOrder(root);
+  const stack = new Stack();
+  stack.push(root);
+  stack.push(root);
 
-  console.log(treeArray);
-  if (treeArray.length <= 0) {
-    return true;
-  }
-  
-  if (treeArray.length % 2 === 0) {
-    return false;
-  }
+  while (!stack.isEmpty()) {
+    const tl = stack.pop();
+    const tr = stack.pop();
 
-  const middleIndex = parseInt(treeArray.length / 2);
-  for (let i = 0; middleIndex - i >= 0; i += 1) {
-    if (treeArray[middleIndex - i] !== treeArray[middleIndex + i]) {
+    if (tl === null && tr === null) {
+      continue;
+    }
+
+    if (tl === null || tr === null) {
       return false;
     }
+
+    if (tl.val !== tr.val) {
+      return false;
+    }
+
+    stack.push(tl.left);
+    stack.push(tr.right);
+
+    stack.push(tl.right);
+    stack.push(tr.left);
   }
 
   return true;
