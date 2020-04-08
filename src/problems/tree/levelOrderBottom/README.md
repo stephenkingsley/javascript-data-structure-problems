@@ -1,9 +1,9 @@
-# levelOrder
+# levelOrderBottom
 
-https://leetcode.com/problems/binary-tree-level-order-traversal/
+https://leetcode.com/problems/binary-tree-level-order-traversal-ii/
 
 ```js
-levelOrder({
+levelOrderBottom({
   "val":3,
   "left":{
      "val":9,
